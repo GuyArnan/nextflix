@@ -6,6 +6,10 @@ on:
     types: [opened, synchronize, reopened] # Staging
   push:
     branches: [main] # Production
+  workflow_run:
+    workflows: ["CI Build & Push to ECR"]
+    types:
+      - completed
 
 jobs:
   deploy:
